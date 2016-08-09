@@ -1,0 +1,39 @@
+{
+
+  "description": "Adds a solid red border to all webpages matching mozilla.org. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#borderify",
+  "manifest_version": 2,
+  "name": "Mindful",
+  "version": "1.0",
+  "homepage_url": "http://nathanarthur.com",
+  "icons": {
+    "48": "icons/shield-48.png",
+    "96": "icons/shield-96.png"
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "borderify@mozilla.org",
+      "strict_min_version": "45.0"
+    }
+  },
+
+  "permissions": [
+    "storage"
+  ], 
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "css": [
+        "vendor/vex/css/vex.css",
+        "vendor/vex/css/vex-theme-plain.css"
+      ],
+      "js": [
+        "vendor/jquery-3.1.0.min.js",
+        "vendor/vex/js/vex.combined.min.js",
+        "mindful.js"
+      ]
+    }
+  ]
+
+}
